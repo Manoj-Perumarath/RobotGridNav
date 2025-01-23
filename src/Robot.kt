@@ -1,5 +1,6 @@
 import data.Compass
 import data.Direction
+import data.InvalidCompassException
 import utils.enumValueOf
 
 class Robot(
@@ -29,6 +30,8 @@ class Robot(
                     if (newX in 0..gridW && newY in 0..gridH) {
                         x = newX
                         y = newY
+                    } else {
+                        throw InvalidCompassException("Outside Grid")
                     }
                 }
             }

@@ -47,14 +47,7 @@ class RobotTest {
 
     @Test(expected = InvalidCompassException::class)
     fun `outside grid movement`() {
-        val expected = "5 6 N"
-        try {
-            val robot = Robot(5, 5, 5, 5, Compass.fromChar('N'), "M")
-            robot.moveRobot()
-            assert(robot.currentRobotPosition() == expected) { "Expected $expected but got ${robot.currentRobotPosition()}" }
-        } catch (e: InvalidCompassException) {
-            assert(false)
-            println("Caught expected failure: ${e.message}")
-        }
+        val robot = Robot(5, 5, 5, 5, Compass.fromChar('N'), "M")
+        robot.moveRobot()
     }
 }
